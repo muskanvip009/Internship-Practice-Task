@@ -1,5 +1,7 @@
 import mysql.connector
 import json
+
+from flask import make_response
 class user_model():
     def __init__(self):    
     # connection establishment
@@ -16,31 +18,33 @@ class user_model():
         result=self.cur.fetchall()
         # print(result)
         if(len(result)>0):
-            return json.dumps(result)
+            res=make_response({"payload":result},200)
+            res.headers['Access-Control-Allow-Origin']="*"
+            return res
         else:
-            return "no data found"
+            return make_response({"message": "No data found"},204)
         
     def user_addone_model(self,data):
         self.cur.execute(f"INSERT INTO userinfo(name,phone,email,password,role) values('{data['name']}','{data['phone']}','{data['email']}','{data['password']}','{data['role']}' )")
         
         print(data)
         # as it is dictionary data["email"]
-        return "user created succesfully"
+        return make_response({"message":"user created succesfully"},201)
     
     def user_update_model(self,data):
         self.cur.execute(f"UPDATE userinfo SET name='{data['name']}', phone='{data['phone']}', email='{data['email']}', password='{data['password']}', role='{data['role']}' WHERE id = {data['id']}")
 
         if self.cur.rowcount>0:
-            return "user updated"
+            return make_response({"message":"user updated"},201)
         else:
-            return "nothing to update"
+            return make_response({"message":"nothing to update"},202)
         
     def user_delete_model(self,id):
         self.cur.execute(f"DELETE FROM userinfo WHERE id = {id}")
 
         if self.cur.rowcount>0:
-            return "user deleted"
+            return make_response({"message":"user deleted"},200)
         else:
-            return "nothing to delete"  
+            return make_response({"message":"nothing to delete"},202)
     
     
