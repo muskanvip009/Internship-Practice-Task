@@ -15,3 +15,7 @@ def user_get_addone():
 @app.route("/user/update",methods=["PUT"])
 def user_update_addone():
     return obj.user_update_model(request.form)
+
+@app.route("/user/delete/<id>",methods=["DELETE"])
+def user_delete_addone(id):
+    return obj.user_delete_model(id)

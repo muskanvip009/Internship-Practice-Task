@@ -35,6 +35,12 @@ class user_model():
         else:
             return "nothing to update"
         
-    
+    def user_delete_model(self,id):
+        self.cur.execute(f"DELETE FROM userinfo WHERE id = {id}")
+
+        if self.cur.rowcount>0:
+            return "user deleted"
+        else:
+            return "nothing to delete"  
     
     
