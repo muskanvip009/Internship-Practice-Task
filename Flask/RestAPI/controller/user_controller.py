@@ -16,6 +16,6 @@ def user_get_addone():
 def user_update_addone():
     return obj.user_update_model(request.form)
 
-@app.route("/user/delete/<id>",methods=["DELETE"])
-def user_delete_addone(id):
-    return obj.user_delete_model(id)
+@app.route("/user/patch/<id>",methods=["PATCH"])
+def user_patch(id):
+    return obj.user_patch_model(request.form,id)
