@@ -1,9 +1,13 @@
 from app import app 
 from model.user_model import user_model
+from model.auth_model import auth_model
 from flask import request
 from datetime import datetime
 obj=user_model()
+auth=auth_model()
+
 @app.route("/user/getall")
+@auth.token_auth("/user/getall")
 def user_get_controller(): 
     return obj.user_getall_model()
 
@@ -32,5 +36,7 @@ def user_upload_avatar_controller(uid):
     file.save(f"uploads/{uniquefilename}.{ext}") 
     return obj.user_upload_avatar_controller(uid,finalpath)
 
-
+@app.route("/user/login",methods=["POST"])
+def user_login_controller():
+    return obj.user_login_model(request.form)
     

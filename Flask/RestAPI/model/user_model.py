@@ -1,7 +1,11 @@
 import mysql.connector
 import json
-
+from datetime import datetime,timedelta
 from flask import make_response
+import jwt
+
+
+
 class user_model():
     def __init__(self):    
     # connection establishment
@@ -79,4 +83,17 @@ class user_model():
         if self.cur.rowcount>0:
             return make_response({"message":"file upload"},201)
         else:
-            return make_response({"message":"nothing to update"},202)             
+            return make_response({"message":"nothing to update"},202)    
+    def user_login_model(self,data):
+        self.cur.execute(f"select id,name,email,phone,password,avatar,role_id from userinfo where email='{data['email']}' and password='{data['password']}' ")
+        result=self.cur.fetchall()
+        userdata=result[0]
+        exp_time=datetime.now() + timedelta(minutes=15)
+        exp_epoch_time=int(exp_time.timestamp())
+        payload={
+            "payload":userdata,
+            "exp":exp_epoch_time
+        }
+        jwttoken=jwt.encode(payload,"muskan",algorithm="HS256")
+        return make_response({"token":jwttoken},200)            
+    
