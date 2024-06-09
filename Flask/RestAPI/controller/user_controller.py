@@ -7,15 +7,26 @@ obj=user_model()
 auth=auth_model()
 
 @app.route("/user/getall")
-@auth.token_auth("/user/getall")
+@auth.token_auth()
 def user_get_controller(): 
     return obj.user_getall_model()
 
 @app.route("/user/addone",methods=["POST"])
+# @auth.token_auth()
 def user_get_addone():
     return obj.user_addone_model(request.form)
 
+@app.route("/user/addmultiple",methods=["POST"])
+# @auth.token_auth()
+def user_user_multiple():
+    return obj.user_addmultiple_model(request.json)
+    
+
+
+
+
 @app.route("/user/update",methods=["PUT"])
+@auth.token_auth()
 def user_update_addone():
     return obj.user_update_model(request.form)
 
