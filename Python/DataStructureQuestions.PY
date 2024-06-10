@@ -91,5 +91,48 @@ if __name__ == "__main__":
 
 
 
+'''
+Problem Statement - Usage of SortedSet
+You are given a 0-indexed integer array nums and an integer x.
+Find the minimum absolute difference between two elements in the array that are at least x indices apart.
+In other words, find two indices i and j such that abs(i - j) >= x and abs(nums[i] - nums[j]) is minimized.
+Return an integer denoting the minimum absolute difference between two elements that are at least x indices apart.
+'''
+
+from sortedcontainers import SortedSet
+
+class Solution:
+    def minAbsoluteDifference(self, nums, x):
+        """
+        Find the minimum absolute difference between two elements in the array that are at least x indices apart.
+        
+        :param nums: List of integers.
+        :param x: Integer representing the minimum index difference.
+        :return: Integer denoting the minimum absolute difference.
+        """
+        n = len(nums)
+        sorted_set = SortedSet()
+        ans = float('inf')
+        
+        for i in range(n - 1 - x, -1, -1):
+            index_ahead = i + x
+            sorted_set.add(nums[index_ahead])
+            
+            element = nums[i]
+            pos = sorted_set.bisect_left(element)
+            
+            if pos < len(sorted_set):
+                ans = min(ans, abs(sorted_set[pos] - element))
+            
+            if pos > 0:
+                ans = min(ans, abs(sorted_set[pos - 1] - element))
+        
+        return ans
+
+# Example usage
+sol = Solution()
+nums = [1, 3, 6, 2, 7, 5]
+x = 2
+print(sol.minAbsoluteDifference(nums, x))  # Output: 1
 
 
