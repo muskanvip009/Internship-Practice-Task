@@ -82,3 +82,57 @@ Operators in SQL are symbols or keywords used to perform operations on data. The
    - Examples: `&` (bitwise AND), `|` (bitwise OR), `^` (bitwise XOR).
 
 
+
+### DQL (Data Query Language)
+
+DQL commands in SQL are used to retrieve data from the database. These commands allow users to specify the data they want to fetch and filter it based on various conditions. Here are the primary DQL commands:
+
+- **SELECT**: Retrieves data from one or more tables.
+- **FROM**: Specifies the table from which data should be retrieved.
+- **WHERE**: Filters data based on specified conditions.
+- **GROUP BY**: Groups rows that have the same values into summary rows.
+- **HAVING**: Filters groups based on specified conditions.
+- **ORDER BY**: Sorts the result set in ascending or descending order.
+- **LIMIT**: Limits the number of rows returned in the result set.
+
+### SQL Inbuilt Functions
+
+In SQL, built-in functions are predefined functions that perform operations on data. These functions are categorized into different types based on their functionality:
+
+#### Aggregate Functions
+
+Aggregate functions perform calculations on a set of values and return a single value. They are often used with the GROUP BY clause.
+
+- **COUNT()**: Returns the number of rows in a group.
+- **SUM()**: Returns the sum of values in a group.
+- **AVG()**: Returns the average of values in a group.
+- **MIN()**: Returns the minimum value in a group.
+- **MAX()**: Returns the maximum value in a group.
+
+#### String Functions
+
+String functions operate on character strings and manipulate them in various ways.
+
+- **CHAR_LENGTH() / LENGTH()**: Returns the length of a string.
+- **CONCAT() / CONCAT_WS()**: Concatenates two or more strings together.
+- **UPPER() / LOWER() / LCASE()**: Converts a string to uppercase or lowercase.
+- **SUBSTR() / SUBSTRING()**: Extracts a substring from a string.
+- **TRIM() / LTRIM() / RTRIM()**: Removes leading and/or trailing spaces from a string.
+
+#### Date and Time Functions
+
+Date and time functions operate on date and time values and perform calculations or extract components from them.
+
+- **CURRENT_DATE() / CURDATE()**: Returns the current date.
+- **CURRENT_TIME() / CURTIME()**: Returns the current time.
+- **DATE() / EXTRACT()**: Extracts parts of a date or time value.
+- **DATE_ADD() / DATE_SUB()**: Adds or subtracts a specified time interval from a date.
+
+#### Numeric Functions
+
+Numeric functions perform mathematical operations on numeric data types.
+
+- **ROUND()**: Rounds a numeric value to a specified number of decimal places.
+- **FLOOR() / CEILING()**: Rounds a numeric value down or up to the nearest integer.
+- **ABS()**: Returns the absolute (positive) value of a numeric expression.
+- **POW()**: Raises a number to the power of another number.
