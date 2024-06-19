@@ -41,8 +41,9 @@ This repository is a demonstration of how to use Supabase, an open-source Fireba
    client = create_client(url, key)
    ```
 
-![Sample Creation ](./assets/img1.png)
-![Authentication Rules](./assets/img2.png)
+![Sample Creation](https://pcsepacpwttyfcafroqd.supabase.co/storage/v1/object/public/new-bucket/demo1.png?)
+![Authentication Rules ](https://pcsepacpwttyfcafroqd.supabase.co/storage/v1/object/public/new-bucket/demo2.png?)
+
 
 
 ## Usage
