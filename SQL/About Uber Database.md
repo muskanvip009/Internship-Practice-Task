@@ -16,9 +16,7 @@ https://pcsepacpwttyfcafroqd.supabase.co/storage/v1/object/public/readme/Uber_Da
     - Each ride requires a vehicle. Relevant details include vehicle type, license plate number, capacity, and current status (e.g., available or on a trip).
 4. **Trip Details**:
     - This includes the start and end locations, start and end times, distance, and the specific route taken (if applicable).
-5. **Pricing**:
-    - Calculated based on various factors such as distance, trip duration, surge pricing, etc.
-6. **Payment**:
+5. **Payment**:
     - Details about how each trip was paid for, including the amount, payment method (e.g., credit card, debit card, cash), and payment status.
 
 ### **Step 2: Translate Components into Database Table Requirements**
@@ -39,11 +37,7 @@ Based on the above components, the following tables are required for the databas
     - Columns: TripID, CustomerID, DriverID, VehicleID, StartLocation, EndLocation, StartDateTime, EndDateTime, Distance, Fare
     - Primary Key: TripID
     - Foreign Keys: CustomerID references Customers(CustomerID), DriverID references Drivers(DriverID), VehicleID references Cabs(VehicleID)
-5. **Pricing Table** (This could be integrated within the Trips Table or kept separate for complex pricing models):
-    - Columns: PricingID, TripID, BaseFare, DistanceRate, TimeRate, SurgeMultiplier, TotalFare
-    - Primary Key: PricingID
-    - Foreign Key: TripID references Trips(TripID)
-6. **Payments Table**:
+5. **Payments Table**:
     - Columns: PaymentID, TripID, Amount, PaymentMethod, PaymentDate
     - Primary Key: PaymentID
     - Foreign Key: TripID references Trips(TripID)
