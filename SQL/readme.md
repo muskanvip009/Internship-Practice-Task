@@ -138,3 +138,132 @@ Numeric functions perform mathematical operations on numeric data types.
 - **FLOOR() / CEILING()**: Rounds a numeric value down or up to the nearest integer.
 - **ABS()**: Returns the absolute (positive) value of a numeric expression.
 - **POW()**: Raises a number to the power of another number.
+
+
+## DAY-3 
+Detailed sql query is in Joins in SQL file
+
+This is the visual representation of the tables and the result 
+
+### Employee Table
+
+| EMP_ID | EMP_NAME | DEPT_ID |
+|--------|----------|---------|
+| 1      | RAM      | 1       |
+| 2      | SHAM     | 1       |
+| 3      | GEETA    | 2       |
+| 4      | RAMAN    | NULL    |
+| 5      | SHEETAL  | 3       |
+| 6      | MEGHA    | NULL    |
+| 7      | KHUSHI   | 4       |
+| 8      | KEERTHI  | 4       |
+| 9      | SUMNA    | 2       |
+| 10     | PRAKASH  | 3       |
+
+### Department Table
+
+| DEPT_ID | DEPT_NAME   |
+|---------|-------------|
+| 1       | MARKETING   |
+| 2       | SALES       |
+| 3       | HR          |
+| 4       | TECHNICAL   |
+| 5       | OTHERS      |
+
+### INNER JOIN
+
+An `INNER JOIN` returns rows when there is a match in both tables.
+
+```sql
+SELECT EMP_ID, EMP_NAME, EMPLOYEE.DEPT_ID, DEPT_NAME
+FROM EMPLOYEE
+INNER JOIN DEPARTMENT
+ON EMPLOYEE.DEPT_ID = DEPARTMENT.DEPT_ID;
+```
+
+| EMP_ID | EMP_NAME | DEPT_ID | DEPT_NAME  |
+|--------|----------|---------|------------|
+| 1      | RAM      | 1       | MARKETING  |
+| 2      | SHAM     | 1       | MARKETING  |
+| 3      | GEETA    | 2       | SALES      |
+| 5      | SHEETAL  | 3       | HR         |
+| 7      | KHUSHI   | 4       | TECHNICAL  |
+| 8      | KEERTHI  | 4       | TECHNICAL  |
+| 9      | SUMNA    | 2       | SALES      |
+| 10     | PRAKASH  | 3       | HR         |
+
+### LEFT JOIN
+
+A `LEFT JOIN` returns all rows from the left table (EMPLOYEE), and the matched rows from the right table (DEPARTMENT). The result is `NULL` from the right side if there is no match.
+
+```sql
+SELECT EMP_ID, EMP_NAME, EMPLOYEE.DEPT_ID, DEPT_NAME
+FROM EMPLOYEE
+LEFT JOIN DEPARTMENT
+ON EMPLOYEE.DEPT_ID = DEPARTMENT.DEPT_ID;
+```
+
+| EMP_ID | EMP_NAME | DEPT_ID | DEPT_NAME  |
+|--------|----------|---------|------------|
+| 1      | RAM      | 1       | MARKETING  |
+| 2      | SHAM     | 1       | MARKETING  |
+| 3      | GEETA    | 2       | SALES      |
+| 4      | RAMAN    | NULL    | NULL       |
+| 5      | SHEETAL  | 3       | HR         |
+| 6      | MEGHA    | NULL    | NULL       |
+| 7      | KHUSHI   | 4       | TECHNICAL  |
+| 8      | KEERTHI  | 4       | TECHNICAL  |
+| 9      | SUMNA    | 2       | SALES      |
+| 10     | PRAKASH  | 3       | HR         |
+
+### RIGHT JOIN
+
+A `RIGHT JOIN` returns all rows from the right table (DEPARTMENT), and the matched rows from the left table (EMPLOYEE). The result is `NULL` from the left side if there is no match.
+
+```sql
+SELECT EMP_ID, EMP_NAME, EMPLOYEE.DEPT_ID, DEPARTMENT.DEPT_ID, DEPT_NAME
+FROM EMPLOYEE
+RIGHT JOIN DEPARTMENT
+ON EMPLOYEE.DEPT_ID = DEPARTMENT.DEPT_ID;
+```
+
+| EMP_ID | EMP_NAME | EMPLOYEE.DEPT_ID | DEPARTMENT.DEPT_ID | DEPT_NAME  |
+|--------|----------|------------------|--------------------|------------|
+| 1      | RAM      | 1                | 1                  | MARKETING  |
+| 2      | SHAM     | 1                | 1                  | MARKETING  |
+| 3      | GEETA    | 2                | 2                  | SALES      |
+| 9      | SUMNA    | 2                | 2                  | SALES      |
+| 5      | SHEETAL  | 3                | 3                  | HR         |
+| 10     | PRAKASH  | 3                | 3                  | HR         |
+| 7      | KHUSHI   | 4                | 4                  | TECHNICAL  |
+| 8      | KEERTHI  | 4                | 4                  | TECHNICAL  |
+| NULL   | NULL     | NULL             | 5                  | OTHERS     |
+
+### FULL OUTER JOIN
+
+A `FULL OUTER JOIN` returns all rows when there is a match in one of the tables. This means it returns all rows from the left table and all rows from the right table. Where there is no match, the result is `NULL`.
+
+(Note: Not all SQL databases support FULL OUTER JOIN directly; you may need to use a UNION of LEFT JOIN and RIGHT JOIN for similar results.)
+
+```sql
+SELECT EMP_ID, EMP_NAME, EMPLOYEE.DEPT_ID, DEPT_NAME
+FROM EMPLOYEE
+FULL OUTER JOIN DEPARTMENT
+ON EMPLOYEE.DEPT_ID = DEPARTMENT.DEPT_ID;
+```
+
+| EMP_ID | EMP_NAME | DEPT_ID | DEPT_NAME  |
+|--------|----------|---------|------------|
+| 1      | RAM      | 1       | MARKETING  |
+| 2      | SHAM     | 1       | MARKETING  |
+| 3      | GEETA    | 2       | SALES      |
+| 4      | RAMAN    | NULL    | NULL       |
+| 5      | SHEETAL  | 3       | HR         |
+| 6      | MEGHA    | NULL    | NULL       |
+| 7      | KHUSHI   | 4       | TECHNICAL  |
+| 8      | KEERTHI  | 4       | TECHNICAL  |
+| 9      | SUMNA    | 2       | SALES      |
+| 10     | PRAKASH  | 3       | HR         |
+| NULL   | NULL     | 5       | OTHERS     |
+
+By following these tables and SQL queries, you can see how different types of joins affect the output of your data when combining the `EMPLOYEE` and `DEPARTMENT` tables.
