@@ -63,4 +63,6 @@
 ### Tools for Testing
 - **Postman**: Used for testing API endpoints by sending HTTP requests and verifying responses.
 
-### Conclude the project by forming a small project of todo app 
+### Conclude the project by forming a small project of todo app
+ 
+### Prepare the notes based on the learnings (Notes-Flask)
