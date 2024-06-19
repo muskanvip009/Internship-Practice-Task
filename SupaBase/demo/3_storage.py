@@ -24,22 +24,22 @@ file_path = "1.jpg"  # specify the path to your file in the bucket
 # except AuthApiError as e:
 #     print("An error occurred:", e)
 
-file_path2 = "demo1.jpg" 
+file_path2 = "demo1.png" 
 
 # accesing readme image using public url
 try:
     # Get the public URL of the file
-    public_url = client.storage.from_(bucket_name).get_public_url(file_path2)
-    print("Public URL:", public_url)
+    public_url1 = client.storage.from_(bucket_name).get_public_url(file_path2)
+    print("Public URL1:", public_url1)
 except AuthApiError as e:
     print("An error occurred:", e)
     
-file_path3 = "demo2.jpg" 
+file_path3 = "demo2.png" 
 
 # accesing readme image using public url
 try:
     # Get the public URL of the file
-    public_url = client.storage.from_(bucket_name).get_public_url(file_path3)
-    print("Public URL:", public_url)
+    public_url2 = client.storage.from_(bucket_name).get_public_url(file_path3)
+    print("Public URL2:", public_url2)
 except AuthApiError as e:
     print("An error occurred:", e)
