@@ -132,3 +132,8 @@ This repository is a demonstration of how to use Supabase, an open-source Fireba
    except AuthApiError as e:
        print("An error occurred:", e)
    ```
+
+
+For Better Clearity I refer to the supabase official docs 
+https://supabase.com/docs
+https://supabase.com/docs/reference/python/installing
