@@ -17,9 +17,29 @@ client = create_client(url, key)
 bucket_name = "new-bucket"
 file_path = "1.jpg"  # specify the path to your file in the bucket
 
+# try:
+#     # Get the public URL of the file
+#     public_url = client.storage.from_(bucket_name).get_public_url(file_path)
+#     print("Public URL:", public_url)
+# except AuthApiError as e:
+#     print("An error occurred:", e)
+
+file_path2 = "demo1.jpg" 
+
+# accesing readme image using public url
 try:
     # Get the public URL of the file
-    public_url = client.storage.from_(bucket_name).get_public_url(file_path)
+    public_url = client.storage.from_(bucket_name).get_public_url(file_path2)
+    print("Public URL:", public_url)
+except AuthApiError as e:
+    print("An error occurred:", e)
+    
+file_path3 = "demo2.jpg" 
+
+# accesing readme image using public url
+try:
+    # Get the public URL of the file
+    public_url = client.storage.from_(bucket_name).get_public_url(file_path3)
     print("Public URL:", public_url)
 except AuthApiError as e:
     print("An error occurred:", e)
