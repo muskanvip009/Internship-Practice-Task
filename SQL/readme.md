@@ -82,6 +82,8 @@ Operators in SQL are symbols or keywords used to perform operations on data. The
    - Examples: `&` (bitwise AND), `|` (bitwise OR), `^` (bitwise XOR).
 
 
+## DAY 2
+
 
 ### DQL (Data Query Language)
 
