@@ -4,7 +4,7 @@ To systematically approach the design of a database for a ride-sharing applicati
 
 ## ER Diagram of UBER database
 
-https://pcsepacpwttyfcafroqd.supabase.co/storage/v1/object/public/readme/Uber_Database.png
+![Sample Creation](https://pcsepacpwttyfcafroqd.supabase.co/storage/v1/object/public/readme/Uber_Database.png)
 
 ### **Step 1: Identify Key Components of a Trip**
 
