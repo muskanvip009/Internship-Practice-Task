@@ -306,26 +306,6 @@ Normalization is the process of organizing a database to minimize redundancy and
 
 ## Subqueries and window functions 
 
-# 📘 README: Subqueries and Window Functions
-
-## Introduction
-
-Subqueries and window functions are powerful features in SQL that allow for complex and efficient data retrieval. Understanding and using these features can significantly enhance the capability to analyze and manipulate data.
-
-## 🔍 Subqueries
-
-### Definition
-
-A subquery, also known as an inner query or nested query, is a query within another SQL query. The subquery provides results that are used by the outer query. Subqueries can be used in various clauses such as `SELECT`, `FROM`, `WHERE`, and `HAVING`.
-
-### Types of Subqueries
-
-# 📘 README: Subqueries and Window Functions
-
-## Introduction
-
-Subqueries and window functions are powerful features in SQL that allow for complex and efficient data retrieval. Understanding and using these features can significantly enhance the capability to analyze and manipulate data.
-
 ## 🔍 Subqueries
 
 ### Definition
