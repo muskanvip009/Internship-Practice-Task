@@ -267,3 +267,143 @@ ON EMPLOYEE.DEPT_ID = DEPARTMENT.DEPT_ID;
 | NULL   | NULL     | 5       | OTHERS     |
 
 By following these tables and SQL queries, you can see how different types of joins affect the output of your data when combining the `EMPLOYEE` and `DEPARTMENT` tables.
+
+## Normalisation
+
+Normalization is the process of organizing a database to minimize redundancy and ensure data integrity. The primary objective is to structure the data so that dependencies are logical, making the database more efficient to manage and query.
+
+### 🏛️ Normal Forms
+
+#### 1️⃣ First Normal Form (1NF)
+**Definition:**
+- Ensures that each column contains atomic (indivisible) values.
+- Removes duplicate columns from the same table.
+- Creates separate tables for each group of related data and identifies each row with a unique column or set of columns (the primary key).
+
+#### 2️⃣ Second Normal Form (2NF)
+**Definition:**
+- Meets all the requirements of the first normal form.
+- Ensures that all non-key attributes are fully functionally dependent on the primary key, meaning each non-key attribute is related to the whole primary key.
+
+#### 3️⃣ Third Normal Form (3NF)
+**Definition:**
+- Meets all the requirements of the second normal form.
+- Ensures that all non-key attributes are not only fully functionally dependent on the primary key but are also non-transitively dependent on it. This means that non-key attributes should not depend on other non-key attributes.
+
+#### 🅱️ Boyce-Codd Normal Form (BCNF)
+**Definition:**
+- Meets all the requirements of the third normal form.
+- For every functional dependency, the determinant must be a superkey. This is a stricter version of the third normal form.
+
+#### 4️⃣ Fourth Normal Form (4NF)
+**Definition:**
+- Meets all the requirements of the Boyce-Codd normal form.
+- A table should not have multi-valued dependencies. This means that one attribute should not have more than one value for a single value of the primary key.
+
+
+
+## Day- 4 
+
+## Subqueries and window functions 
+
+# 📘 README: Subqueries and Window Functions
+
+## Introduction
+
+Subqueries and window functions are powerful features in SQL that allow for complex and efficient data retrieval. Understanding and using these features can significantly enhance the capability to analyze and manipulate data.
+
+## 🔍 Subqueries
+
+### Definition
+
+A subquery, also known as an inner query or nested query, is a query within another SQL query. The subquery provides results that are used by the outer query. Subqueries can be used in various clauses such as `SELECT`, `FROM`, `WHERE`, and `HAVING`.
+
+### Types of Subqueries
+
+# 📘 README: Subqueries and Window Functions
+
+## Introduction
+
+Subqueries and window functions are powerful features in SQL that allow for complex and efficient data retrieval. Understanding and using these features can significantly enhance the capability to analyze and manipulate data.
+
+## 🔍 Subqueries
+
+### Definition
+
+A subquery, also known as an inner query or nested query, is a query within another SQL query. The subquery provides results that are used by the outer query. Subqueries can be used in various clauses such as `SELECT`, `FROM`, `WHERE`, and `HAVING`.
+
+### Types of Subqueries
+
+#### 1. Single Row Subqueries
+**Definition:**
+- Return only one row of results.
+- Commonly used with comparison operators such as `=`, `<`, `>`, `<=`, `>=`.
+
+**Example Use Case:**
+- Finding the employee with the highest salary within a department.
+
+#### 2. Multi Row Subqueries
+**Definition:**
+- Return more than one row of results.
+- Used with operators such as `IN`, `ANY`, `ALL`.
+
+**Example Use Case:**
+- Listing employees who work in departments located in specific cities.
+
+#### 3. Correlated Subqueries
+**Definition:**
+- Reference columns from the outer query.
+- Re-evaluated for each row of the outer query, making them more complex and often slower than regular subqueries.
+
+**Example Use Case:**
+- Finding employees whose salary is above the average salary of their department.
+
+
+## 🔄 Window Functions
+
+### Definition
+
+Window functions perform calculations across a set of table rows that are related to the current row. Unlike aggregate functions, window functions do not cause rows to become grouped into a single output row. Instead, the rows retain their separate identities.
+
+### Common Window Functions
+
+#### 1. `ROW_NUMBER()`
+Assigns a unique sequential integer to rows within a partition of a result set.
+
+#### 2. `RANK()`
+Assigns a rank to each row within a partition of a result set. Rows with equal values receive the same rank, with gaps in the ranking sequence.
+
+#### 3. `DENSE_RANK()`
+Similar to `RANK()`, but assigns ranks without gaps between the ranking groups.
+
+#### 4. `NTILE(n)`
+Divides rows in an ordered partition into a specified number of groups and assigns a number to each group, ranging from 1 to n.
+
+#### 5. `LAG()` and `LEAD()`
+Provides access to a row at a specified physical offset before (`LAG()`) or after (`LEAD()`) the current row within a partition.
+
+
+## Day-6
+
+# 📘  Database Management with Advanced Features
+
+## 🚀 Key Points
+
+1. **🗄️ Database and Table Creation**
+   - Created a database named `org`.
+   - Created three tables: `Worker`, `Bonus`, and `Title`.
+
+2. **📥 Data Insertion**
+   - Inserted sample data into the `Worker`, `Bonus`, and `Title` tables.
+
+3. **🔧 Stored Functions**
+   - **`computeTax`:** Calculates income tax based on the salary of a worker.
+   - **`calculate_len`:** Transforms worker's first name based on its length.
+
+4. **⚡ Triggers**
+   - **`after_worker_insert`:** Automatically inserts a record into the `Title` table when a new worker is added.
+   - **`after_update`:** Updates the `Title` table when a worker's ID is updated.
+   - **`after_worker_deletion`:** Deletes related records from the `Title` table when a worker is deleted.
+
+5. **🔄 Cursors**
+   - **`iterate_worker`:** Uses a cursor to iterate over worker records and display their details along with computed tax.
