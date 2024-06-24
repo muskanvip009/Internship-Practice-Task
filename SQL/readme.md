@@ -1,6 +1,5 @@
-## DAY 1 
+# DAY 1   ( 17 June 2024 )
 
-# Welcome to the World of Databases
 
 ## Introduction
 
@@ -82,7 +81,7 @@ Operators in SQL are symbols or keywords used to perform operations on data. The
    - Examples: `&` (bitwise AND), `|` (bitwise OR), `^` (bitwise XOR).
 
 
-## DAY 2
+# DAY 2   ( 18 June 2024 )
 
 
 ### DQL (Data Query Language)
@@ -140,7 +139,8 @@ Numeric functions perform mathematical operations on numeric data types.
 - **POW()**: Raises a number to the power of another number.
 
 
-## DAY-3 
+# DAY 3   ( 19 June 2024 )
+
 Detailed sql query is in Joins in SQL file
 
 This is the visual representation of the tables and the result 
@@ -302,7 +302,7 @@ Normalization is the process of organizing a database to minimize redundancy and
 
 
 
-## Day- 4 
+# DAY 4   ( 20 June 2024 )
 
 ## Subqueries and window functions 
 
@@ -363,9 +363,8 @@ Divides rows in an ordered partition into a specified number of groups and assig
 Provides access to a row at a specified physical offset before (`LAG()`) or after (`LEAD()`) the current row within a partition.
 
 
-## Day-6
+# DAY 5 ( 21 June 2024 )
 
-# 📘  Database Management with Advanced Features
 
 ## 🚀 Key Points
 
@@ -382,6 +381,8 @@ Provides access to a row at a specified physical offset before (`LAG()`) or afte
 
 4. **🔄 Cursors**
    - **`iterate_worker`:** Uses a cursor to iterate over worker records and display their details along with computed tax.
+
+# DAY 6 ( 17 June 2024 )
 
 
 #### What is a Trigger?
